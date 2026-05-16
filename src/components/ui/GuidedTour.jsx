@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { X, ArrowRight, ShoppingBag, Calendar, MessageCircle, ChevronDown } from 'lucide-react';
+import { X, ShoppingBag, Calendar } from 'lucide-react';
 import './GuidedTour.css';
 
-/* ─── Tour Step Definitions ─── */
+/* Tour Step Definitions */
 const CONSULTATION_STEPS = [
   {
     id: 'consult-hero',
@@ -11,7 +11,7 @@ const CONSULTATION_STEPS = [
     title: '📅 Book Your Consultation',
     body: 'Start here! Click "Book Consultation" to open your personal booking form with Gurudev Ji.',
     arrow: 'bottom',
-    cta: 'Got it, Next →',
+    cta: 'Got it, Next',
   },
   {
     id: 'consult-form',
@@ -19,15 +19,15 @@ const CONSULTATION_STEPS = [
     title: '📝 Fill Your Details',
     body: 'Enter your name, contact number, and select the type of consultation you need (Jyotish, Vastu, or Online Puja).',
     arrow: 'top',
-    cta: 'Next →',
+    cta: 'Next',
   },
   {
     id: 'consult-whatsapp',
     targetId: 'consult-submit-btn',
     title: '💬 Instant WhatsApp Connect',
-    body: 'Hit "Send via WhatsApp" — your details will be auto-filled and sent directly to Gurudev Ji. He'll respond within minutes!',
+    body: 'Hit Send via WhatsApp — your details go directly to Gurudev Ji. He responds within minutes!',
     arrow: 'top',
-    cta: 'Done ✓',
+    cta: 'Done',
   },
 ];
 
@@ -38,29 +38,29 @@ const SHOP_STEPS = [
     title: '🛕 Explore Sacred Items',
     body: 'Click "Explore Shop" to browse our full collection of authentic, energized spiritual products.',
     arrow: 'bottom',
-    cta: 'Got it, Next →',
+    cta: 'Got it, Next',
   },
   {
     id: 'shop-product',
     targetId: 'shop-first-product',
-    title: '🔎 Browse & Select',
+    title: '🔎 Browse and Select',
     body: 'Click on any item to see full details, pricing, and its spiritual significance. Add items to your cart.',
     arrow: 'top',
-    cta: 'Next →',
+    cta: 'Next',
   },
   {
     id: 'shop-cart',
     targetId: 'cart-whatsapp-btn',
     title: '💬 Order via WhatsApp',
-    body: 'Done shopping? Click "Order via WhatsApp" — your complete cart will be sent to Gurudev Ji for confirmation. Simple & secure!',
+    body: 'Done shopping? Your complete cart is sent to Gurudev Ji for confirmation. Simple and secure!',
     arrow: 'top',
-    cta: 'Done ✓',
+    cta: 'Done',
   },
 ];
 
-/* ─── Main Component ─── */
+/* Main Component */
 const GuidedTour = () => {
-  const [activeTour, setActiveTour] = useState(null); // 'consult' | 'shop' | null
+  const [activeTour, setActiveTour] = useState(null);
   const [stepIndex, setStepIndex] = useState(0);
   const [tooltipStyle, setTooltipStyle] = useState({});
   const [spotlightStyle, setSpotlightStyle] = useState({});
@@ -87,7 +87,6 @@ const GuidedTour = () => {
     const scrollY = window.scrollY;
     const pad = 16;
 
-    // Scroll element into view with some offset
     window.scrollTo({ top: rect.top + scrollY - 180, behavior: 'smooth' });
 
     setSpotlightStyle({
@@ -97,7 +96,6 @@ const GuidedTour = () => {
       height: rect.height + pad * 2,
     });
 
-    // Position tooltip below or above
     if (currentStep.arrow === 'bottom') {
       setTooltipStyle({
         top: rect.top + scrollY + rect.height + pad + 12,
@@ -105,7 +103,7 @@ const GuidedTour = () => {
       });
     } else {
       setTooltipStyle({
-        top: rect.top + scrollY - 160 - pad,
+        top: rect.top + scrollY - 180 - pad,
         left: Math.max(16, rect.left + rect.width / 2 - 150),
       });
     }
@@ -149,13 +147,13 @@ const GuidedTour = () => {
 
   return (
     <>
-      {/* ── Launcher Prompt ── */}
+      {/* Launcher Prompt */}
       {showLauncher && (
         <div className="tour-launcher">
           <button className="tour-launcher-close" onClick={dismiss}>
             <X size={14} />
           </button>
-          <p className="tour-launcher-title">👋 First time here?</p>
+          <p className="tour-launcher-title">First time here?</p>
           <p className="tour-launcher-sub">Let us guide you step by step.</p>
           <div className="tour-launcher-btns">
             <button className="tour-launch-btn tour-launch-primary" onClick={() => startTour('consult')}>
@@ -168,7 +166,7 @@ const GuidedTour = () => {
         </div>
       )}
 
-      {/* ── Help Button — always visible unless tour is active ── */}
+      {/* Help Button — always visible unless tour is active */}
       {!activeTour && (
         <button
           className={`tour-help-fab ${showLauncher ? 'tour-help-fab--active' : ''}`}
@@ -179,19 +177,16 @@ const GuidedTour = () => {
         </button>
       )}
 
-      {/* ── Active Tour Overlay ── */}
+      {/* Active Tour Overlay */}
       {activeTour && (
         <>
-          {/* Dark overlay */}
           <div className="tour-backdrop" onClick={endTour} />
 
-          {/* Spotlight cut-out */}
           <div
             className="tour-spotlight"
             style={spotlightStyle}
           />
 
-          {/* Tooltip */}
           {currentStep && (
             <div
               ref={tooltipRef}
