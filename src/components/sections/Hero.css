@@ -210,3 +210,38 @@
   67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
   100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
 }
+
+/* Floating Indicator */
+.hero-floating-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  animation: floatBounce 2s infinite ease-in-out;
+  color: var(--color-primary);
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.indicator-text {
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+}
+
+.indicator-arrow {
+  font-size: 1.2rem;
+  animation: arrowPulse 1.5s infinite alternate;
+}
+
+@keyframes floatBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes arrowPulse {
+  from { opacity: 0.5; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.2); }
+}

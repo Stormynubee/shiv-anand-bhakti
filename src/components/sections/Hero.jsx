@@ -28,6 +28,11 @@ const Hero = () => {
             Experience authentic Vedic rituals, personalized consultations, and curated sacred items to elevate your spiritual journey.
           </p>
           
+          <div className="reveal-child hero-floating-indicator">
+            <span className="indicator-text">✨ Begin Your Journey</span>
+            <span className="indicator-arrow">↓</span>
+          </div>
+          
           <div className="reveal-child hero-actions">
             <Link to="/consultation" className="hero-btn-link">
               <Button variant="primary" size="lg" className="attention-pulse">
