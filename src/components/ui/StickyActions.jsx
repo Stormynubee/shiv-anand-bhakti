@@ -8,12 +8,8 @@ const StickyActions = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show when scrolled past the hero section (roughly 500px)
-      if (window.scrollY > 500) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      // Show when user scrolls past the hero CTA buttons (~300px)
+      setIsVisible(window.scrollY > 300);
     };
 
     window.addEventListener('scroll', handleScroll);

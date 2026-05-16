@@ -260,6 +260,11 @@
   box-shadow: 0 6px 20px rgba(128,0,32,0.4);
 }
 
+.tour-help-fab--active {
+  background: var(--color-primary);
+  transform: rotate(45deg);
+}
+
 @media (max-width: 480px) {
   .tour-tooltip {
     width: calc(100vw - 32px);

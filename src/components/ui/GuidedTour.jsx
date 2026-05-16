@@ -65,10 +65,9 @@ const GuidedTour = () => {
   const [tooltipStyle, setTooltipStyle] = useState({});
   const [spotlightStyle, setSpotlightStyle] = useState({});
   const [showLauncher, setShowLauncher] = useState(false);
-  const [dismissed, setDismissed] = useState(false);
   const tooltipRef = useRef(null);
 
-  // Show launcher after 3 seconds if not dismissed
+  // Show launcher after 3 seconds if not already seen
   useEffect(() => {
     const alreadySeen = localStorage.getItem('sab_tour_dismissed');
     if (alreadySeen) return;
@@ -146,7 +145,6 @@ const GuidedTour = () => {
   const dismiss = () => {
     localStorage.setItem('sab_tour_dismissed', '1');
     setShowLauncher(false);
-    setDismissed(true);
   };
 
   return (
@@ -170,9 +168,13 @@ const GuidedTour = () => {
         </div>
       )}
 
-      {/* ── Help Button (always visible, bottom-left) ── */}
-      {!showLauncher && !activeTour && (
-        <button className="tour-help-fab" onClick={() => setShowLauncher(true)} title="Need help? Take the tour">
+      {/* ── Help Button — always visible unless tour is active ── */}
+      {!activeTour && (
+        <button
+          className={`tour-help-fab ${showLauncher ? 'tour-help-fab--active' : ''}`}
+          onClick={() => setShowLauncher(v => !v)}
+          title="Need help? Take the tour"
+        >
           ?
         </button>
       )}
