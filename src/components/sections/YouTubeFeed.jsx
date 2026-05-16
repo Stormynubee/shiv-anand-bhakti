@@ -1,11 +1,9 @@
 import React from 'react';
 import { Youtube } from 'lucide-react';
-import { useScrollReveal } from '../../hooks/useScrollReveal';
+import { FadeIn, StaggerContainer, StaggerItem } from '../ui/MotionWrappers';
 import './YouTubeFeed.css';
 
 const YouTubeFeed = () => {
-  const revealRef = useScrollReveal();
-
   const videos = [
     {
       id: 'video-1',
@@ -28,51 +26,55 @@ const YouTubeFeed = () => {
   ];
 
   return (
-    <section className="section bg-white" ref={revealRef}>
+    <section className="section bg-white">
       <div className="container">
         
-        <div className="reveal-child yt-header">
-          <div>
-            <h2 className="yt-title">
-              <Youtube className="yt-icon" size={28} />
-              Spiritual Wisdom Online
-            </h2>
-            <p className="yt-subtitle">Watch recent Kathas, Jyotish insights, and live Aarti from our mandir.</p>
-          </div>
-          <a 
-            href="https://www.youtube.com/@Gurudevpt.Shiwanandji" 
-            target="_blank" 
-            rel="noreferrer"
-            className="yt-subscribe-link"
-          >
-            Subscribe to Channel →
-          </a>
-        </div>
-
-        <div className="yt-grid">
-          {videos.map((video, index) => (
+        <FadeIn>
+          <div className="yt-header">
+            <div>
+              <h2 className="yt-title">
+                <Youtube className="yt-icon" size={28} />
+                Spiritual Wisdom Online
+              </h2>
+              <p className="yt-subtitle">Watch recent Kathas, Jyotish insights, and live Aarti from our mandir.</p>
+            </div>
             <a 
-              key={video.id} 
-              href={video.url}
-              target="_blank"
+              href="https://www.youtube.com/@Gurudevpt.Shiwanandji" 
+              target="_blank" 
               rel="noreferrer"
-              className="reveal-child yt-video-card"
-              style={{ transitionDelay: `${0.2 + (index * 0.1)}s` }}
+              className="yt-subscribe-link"
             >
-              <div className="yt-thumbnail-container">
-                <img src={video.thumbnail} alt={video.title} className="yt-thumbnail" />
-                <div className="yt-thumbnail-overlay">
-                  <div className="yt-play-btn">
-                    <svg className="yt-play-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"></path></svg>
-                  </div>
-                </div>
-              </div>
-              <h3 className="yt-video-title">
-                {video.title}
-              </h3>
+              Subscribe to Channel →
             </a>
-          ))}
-        </div>
+          </div>
+        </FadeIn>
+
+        <StaggerContainer staggerDelay={0.15}>
+          <div className="yt-grid">
+            {videos.map((video) => (
+              <StaggerItem key={video.id}>
+                <a 
+                  href={video.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="yt-video-card"
+                >
+                  <div className="yt-thumbnail-container">
+                    <img src={video.thumbnail} alt={video.title} className="yt-thumbnail" />
+                    <div className="yt-thumbnail-overlay">
+                      <div className="yt-play-btn">
+                        <svg className="yt-play-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"></path></svg>
+                      </div>
+                    </div>
+                  </div>
+                  <h3 className="yt-video-title">
+                    {video.title}
+                  </h3>
+                </a>
+              </StaggerItem>
+            ))}
+          </div>
+        </StaggerContainer>
 
       </div>
     </section>

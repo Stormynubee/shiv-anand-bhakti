@@ -1,12 +1,10 @@
 import React from 'react';
 import { Sparkles, Compass, Flame } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useScrollReveal } from '../../hooks/useScrollReveal';
+import { FadeIn, StaggerContainer, StaggerItem } from '../ui/MotionWrappers';
 import './Services.css';
 
 const Services = () => {
-  const revealRef = useScrollReveal();
-
   const services = [
     {
       id: 'jyotish',
@@ -32,39 +30,41 @@ const Services = () => {
   ];
 
   return (
-    <section className="services-section section bg-maroon" ref={revealRef}>
+    <section className="services-section section bg-maroon">
       <div className="container">
-        <div className="reveal-child services-header">
-          <h2 className="services-title">
-            Seek Divine Guidance
-          </h2>
-          <p className="services-subtitle">
-            Connect with our expert astrologers and spiritual guides for Jyotish readings, Vastu consultations, and personalized Online Pujas.
-          </p>
-        </div>
+        <FadeIn>
+          <div className="services-header">
+            <h2 className="services-title">
+              Seek Divine Guidance
+            </h2>
+            <p className="services-subtitle">
+              Connect with our expert astrologers and spiritual guides for Jyotish readings, Vastu consultations, and personalized Online Pujas.
+            </p>
+          </div>
+        </FadeIn>
         
-        <div className="services-grid">
-          {services.map((service, index) => (
-            <div 
-              key={service.id} 
-              className="reveal-child service-card"
-              style={{ transitionDelay: `${0.2 + (index * 0.1)}s` }}
-            >
-              <div className="service-icon">
-                {service.icon}
-              </div>
-              <h3 className="service-card-title">{service.title}</h3>
-              <p className="service-card-desc">{service.desc}</p>
-              
-              <div className="service-card-footer">
-                <span className="service-price">{service.price}</span>
-                <Link to="/consultation" className="service-book-link">
-                  Book Now <span>→</span>
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
+        <StaggerContainer staggerDelay={0.15}>
+          <div className="services-grid">
+            {services.map((service) => (
+              <StaggerItem key={service.id}>
+                <div className="service-card bg-texture">
+                  <div className="service-icon">
+                    {service.icon}
+                  </div>
+                  <h3 className="service-card-title">{service.title}</h3>
+                  <p className="service-card-desc">{service.desc}</p>
+                  
+                  <div className="service-card-footer">
+                    <span className="service-price">{service.price}</span>
+                    <Link to="/consultation" className="service-book-link">
+                      Book Now <span>→</span>
+                    </Link>
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </div>
+        </StaggerContainer>
       </div>
     </section>
   );
