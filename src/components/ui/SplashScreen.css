@@ -1,0 +1,95 @@
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #2a0800 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.splash-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* Rotating glowing mandala background */
+.splash-mandala {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="none" stroke="%23D4AF37" stroke-width="0.5" opacity="0.3"/><path d="M 50 10 L 90 90 L 10 90 Z" fill="none" stroke="%23D4AF37" stroke-width="0.5" opacity="0.3"/><path d="M 50 90 L 90 10 L 10 10 Z" fill="none" stroke="%23D4AF37" stroke-width="0.5" opacity="0.3"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  animation: slowSpin 15s linear infinite;
+  opacity: 0.8;
+}
+
+.splash-om {
+  font-size: 8rem;
+  color: var(--color-secondary);
+  text-shadow: 0 0 40px rgba(212, 175, 55, 0.6), 0 0 80px rgba(212, 175, 55, 0.3);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+}
+
+.splash-text-wrapper {
+  text-align: center;
+}
+
+.splash-title {
+  font-family: 'Noto Serif', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-neutral);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+  background: linear-gradient(to right, #fff, var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.splash-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  opacity: 0.9;
+}
+
+@keyframes slowSpin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .splash-om {
+    font-size: 6rem;
+  }
+  
+  .splash-title {
+    font-size: 2rem;
+  }
+  
+  .splash-mandala {
+    width: 300px;
+    height: 300px;
+  }
+}

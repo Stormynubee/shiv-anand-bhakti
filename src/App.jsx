@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
@@ -19,13 +19,19 @@ import { CartProvider } from './context/CartContext';
 import WhatsAppFAB from './components/ui/WhatsAppFAB';
 import ScrollToTop from './components/ui/ScrollToTop';
 import CartDrawer from './components/ui/CartDrawer';
+import SplashScreen from './components/ui/SplashScreen';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
 
   return (
     <CartProvider>
-      <div className="app-container">
+      <AnimatePresence mode="wait">
+        {isLoading && <SplashScreen key="splash" finishLoading={() => setIsLoading(false)} />}
+      </AnimatePresence>
+
+      <div className="app-container" style={{ display: isLoading ? 'none' : 'block' }}>
         <ScrollToTop />
         <Navbar />
         <CartDrawer />
