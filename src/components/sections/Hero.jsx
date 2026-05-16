@@ -1,5 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import { Calendar, ShoppingBag } from 'lucide-react';
 import Button from '../ui/Button';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 import './Hero.css';
@@ -29,11 +29,17 @@ const Hero = () => {
           </p>
           
           <div className="reveal-child hero-actions">
-            <Link to="/consultation">
-              <Button variant="primary" size="lg">Book Consultation</Button>
+            <Link to="/consultation" className="hero-btn-link">
+              <Button variant="primary" size="lg" className="attention-pulse">
+                <Calendar size={18} style={{ marginRight: '8px' }} />
+                Book Consultation
+              </Button>
             </Link>
-            <Link to="/shop">
-              <Button variant="outline" size="lg">Explore Shop</Button>
+            <Link to="/shop" className="hero-btn-link">
+              <Button variant="outline" size="lg">
+                <ShoppingBag size={18} style={{ marginRight: '8px' }} />
+                Explore Shop
+              </Button>
             </Link>
           </div>
         </div>
