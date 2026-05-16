@@ -29,7 +29,7 @@ const Hero = () => {
           </p>
           
           <div className="reveal-child hero-floating-indicator">
-            <span className="indicator-text">✨ Begin Your Journey</span>
+            <span className="indicator-text">✦ Begin Your Journey ✦</span>
             <span className="indicator-arrow">↓</span>
           </div>
           

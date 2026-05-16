@@ -14,9 +14,9 @@ import Consultation from './pages/Consultation';
 import About from './pages/About';
 import Cart from './pages/Cart';
 
-// Context & UI
 import { CartProvider } from './context/CartContext';
 import WhatsAppFAB from './components/ui/WhatsAppFAB';
+import StickyActions from './components/ui/StickyActions';
 import ScrollToTop from './components/ui/ScrollToTop';
 import CartDrawer from './components/ui/CartDrawer';
 import SplashScreen from './components/ui/SplashScreen';
@@ -51,6 +51,7 @@ function App() {
         
         <Footer />
         <WhatsAppFAB />
+        <StickyActions />
       </div>
     </CartProvider>
   );
