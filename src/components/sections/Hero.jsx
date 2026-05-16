@@ -20,9 +20,8 @@ const Hero = () => {
           </div>
           
           <h1 className="reveal-child hero-title">
-            SANATANA<br />
-            <span className="font-light">DHARMA KI</span><br />
-            <span className="text-saffron">SEVA MEIN</span>
+            Sanatana <span className="font-light">Dharma</span><br />
+            <span className="text-saffron" style={{ fontStyle: 'italic', fontWeight: 400 }}>ki Seva Mein</span>
           </h1>
           
           <p className="reveal-child hero-subtitle">

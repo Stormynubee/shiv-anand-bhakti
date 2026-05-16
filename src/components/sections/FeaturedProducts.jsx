@@ -16,10 +16,10 @@ const FeaturedProducts = () => {
       <div className="container">
         <div className="reveal-child featured-header">
           <h2 className="featured-title">
-            Curated Puja Samagri & Gems
+            Sacred Offerings for Your Devotion
           </h2>
           <p className="featured-subtitle">
-            Authentic, energized spiritual items carefully selected for your daily practices and divine connection.
+            Authentic, energized spiritual items carefully selected to deepen your daily practices and divine connection.
           </p>
         </div>
         
