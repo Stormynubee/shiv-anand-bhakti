@@ -1,0 +1,168 @@
+.lineage-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .lineage-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.lineage-content {
+  order: 2;
+}
+
+@media (min-width: 768px) {
+  .lineage-content {
+    order: 1;
+  }
+}
+
+.lineage-heading {
+  font-family: var(--font-hero);
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--color-tertiary);
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .lineage-heading {
+    font-size: 2.25rem;
+  }
+}
+
+.lineage-text {
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.lineage-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.lineage-stat {
+  border-left: 3px solid var(--color-primary);
+  padding-left: 1rem;
+}
+
+.stat-number {
+  font-family: var(--font-hero);
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.lineage-cta {
+  margin-top: 2rem;
+}
+
+/* Image Column */
+.lineage-image-col {
+  position: relative;
+  order: 1;
+}
+
+@media (min-width: 768px) {
+  .lineage-image-col {
+    order: 2;
+  }
+}
+
+.lineage-image-card {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.lineage-image-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(60, 10, 10, 0.25);
+  z-index: 0;
+}
+
+.lineage-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+.lineage-image-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top right, rgba(128, 0, 32, 0.8), transparent);
+  z-index: 2;
+}
+
+.lineage-image-quote {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  color: white;
+  z-index: 3;
+}
+
+.quote-text {
+  font-family: var(--font-hindi);
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--color-secondary);
+}
+
+.quote-translation {
+  margin-top: 0.5rem;
+  opacity: 0.8;
+  font-family: var(--font-hero);
+  font-size: 0.875rem;
+}
+
+/* Decorative circles */
+.lineage-decor-circle {
+  position: absolute;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.lineage-decor-1 {
+  width: 6rem;
+  height: 6rem;
+  bottom: -1.5rem;
+  left: -1.5rem;
+  opacity: 0.3;
+}
+
+.lineage-decor-2 {
+  width: 8rem;
+  height: 8rem;
+  top: -1.5rem;
+  right: -1.5rem;
+  opacity: 0.2;
+  border-color: var(--color-secondary);
+}

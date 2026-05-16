@@ -1,0 +1,274 @@
+.consult-page {
+  position: relative;
+  overflow: hidden;
+}
+
+.consult-bg-1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background-color: rgba(255, 107, 53, 0.04);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.consult-bg-2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background-color: rgba(212, 175, 55, 0.04);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.consult-container {
+  position: relative;
+  z-index: 10;
+}
+
+.consult-header {
+  max-width: 48rem;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.consult-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.consult-title {
+  font-family: var(--font-hero);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-tertiary);
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .consult-title {
+    font-size: 3rem;
+  }
+}
+
+.consult-intro {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.consult-secure-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-tertiary);
+  background-color: white;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border-gold);
+}
+
+.consult-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-success);
+}
+
+.consult-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .consult-layout {
+    grid-template-columns: 2fr 3fr;
+  }
+}
+
+/* Service cards */
+.consult-services {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.consult-services-title {
+  font-family: var(--font-hero);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-tertiary);
+  margin-bottom: 0.5rem;
+}
+
+.consult-service-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.consult-service-name {
+  font-family: var(--font-hero);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.consult-service-desc {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.consult-service-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.consult-service-duration {
+  color: var(--color-text-faint);
+}
+
+.consult-service-price {
+  color: var(--color-tertiary);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* Form */
+.consult-form-wrapper {
+  min-width: 0;
+}
+
+.consult-form-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
+}
+
+@media (min-width: 768px) {
+  .consult-form-card {
+    padding: 2.5rem;
+  }
+}
+
+.consult-form-title {
+  font-family: var(--font-hero);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-tertiary);
+  margin-bottom: 2rem;
+}
+
+.consult-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.consult-form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .consult-form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.consult-radio-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.consult-radio-input {
+  display: none;
+}
+
+.consult-radio-label {
+  cursor: pointer;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 2px solid #E5E7EB;
+  font-size: 0.95rem;
+  color: var(--color-text-faint);
+  transition: all 0.2s ease;
+}
+
+.consult-radio-label:hover {
+  border-color: var(--color-border-gold);
+}
+
+.consult-radio-label.active {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  color: var(--color-tertiary);
+  font-weight: 600;
+}
+
+.consult-birth-notice {
+  background-color: rgba(255, 107, 53, 0.05);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 107, 53, 0.15);
+}
+
+.consult-notice-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-tertiary);
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.consult-notice-icon {
+  color: var(--color-secondary);
+}
+
+.consult-notice-text {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.consult-form-note {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--color-text-faint);
+  margin-top: 0.5rem;
+}
