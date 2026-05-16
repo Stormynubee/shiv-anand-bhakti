@@ -93,7 +93,7 @@ const Consultation = () => {
             </div>
 
             {/* Right: Booking Form */}
-            <div className="consult-form-wrapper">
+            <div className="consult-form-wrapper" id="consult-form-section">
               <div className="consult-form-card">
                 <h3 className="consult-form-title">Schedule Your Session</h3>
                 
@@ -196,7 +196,7 @@ const Consultation = () => {
                     ></textarea>
                   </div>
 
-                  <Button type="submit" className="w-full" size="lg">
+                  <Button type="submit" className="w-full" size="lg" id="consult-submit-btn">
                     Request Booking via WhatsApp
                   </Button>
                   <p className="consult-form-note">

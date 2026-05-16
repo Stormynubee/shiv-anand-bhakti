@@ -69,8 +69,10 @@ const Shop = () => {
               </div>
               
               <div className="shop-grid">
-                {filteredProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} />
+                {filteredProducts.map((product, idx) => (
+                  <div key={product.id} id={idx === 0 ? 'shop-first-product' : undefined}>
+                    <ProductCard product={product} />
+                  </div>
                 ))}
               </div>
               

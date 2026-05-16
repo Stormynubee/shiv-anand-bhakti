@@ -128,7 +128,7 @@ const Cart = () => {
                   <span className="cart-summary-total-value">₹{getCartTotal()}</span>
                 </div>
                 
-                <Button className="w-full" size="lg" onClick={handleCheckoutViaWhatsApp}>
+                <Button className="w-full" size="lg" id="cart-whatsapp-btn" onClick={handleCheckoutViaWhatsApp}>
                   Proceed to Checkout
                 </Button>
                 

@@ -34,13 +34,13 @@ const Hero = () => {
           </div>
           
           <div className="reveal-child hero-actions">
-            <Link to="/consultation" className="hero-btn-link">
+            <Link to="/consultation" className="hero-btn-link" id="hero-consult-btn">
               <Button variant="primary" size="lg" className="attention-pulse">
                 <Calendar size={18} style={{ marginRight: '8px' }} />
                 Book Consultation
               </Button>
             </Link>
-            <Link to="/shop" className="hero-btn-link">
+            <Link to="/shop" className="hero-btn-link" id="hero-shop-btn">
               <Button variant="outline" size="lg">
                 <ShoppingBag size={18} style={{ marginRight: '8px' }} />
                 Explore Shop
