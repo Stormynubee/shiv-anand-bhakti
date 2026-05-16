@@ -8,7 +8,8 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { pathname } = useLocation();
-  const { getCartCount, setIsCartOpen } = useCart();
+  const { getCartCount, setIsCartOpen, lastAdded } = useCart();
+  const [badgeBounce, setBadgeBounce] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +18,14 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Bounce badge when item added
+  useEffect(() => {
+    if (!lastAdded) return;
+    setBadgeBounce(true);
+    const t = setTimeout(() => setBadgeBounce(false), 600);
+    return () => clearTimeout(t);
+  }, [lastAdded]);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -64,10 +73,10 @@ const Navbar = () => {
 
         {/* Right Actions */}
         <div className="nav-actions">
-          <button className="cart-btn" onClick={() => setIsCartOpen(true)} aria-label="Open Cart">
+          <button className={`cart-btn ${badgeBounce ? 'cart-btn--bounce' : ''}`} onClick={() => setIsCartOpen(true)} aria-label="Open Cart">
             <ShoppingCart size={22} />
             {getCartCount() > 0 && (
-              <span className="cart-badge">{getCartCount()}</span>
+              <span className={`cart-badge ${badgeBounce ? 'badge-bounce' : ''}`}>{getCartCount()}</span>
             )}
           </button>
           

@@ -14,6 +14,7 @@ export const CartProvider = ({ children }) => {
   });
 
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [lastAdded, setLastAdded] = useState(null); // {id, name, image, timestamp}
 
   useEffect(() => {
     // Save to local storage whenever cart changes
@@ -32,8 +33,8 @@ export const CartProvider = ({ children }) => {
       }
       return [...prevItems, { ...product, quantity }];
     });
-    // Optional: auto open cart or show toast
-    // setIsCartOpen(true);
+    // Trigger add animation
+    setLastAdded({ id: product.id, name: product.name, image: product.image, ts: Date.now() });
   };
 
   const removeFromCart = (productId) => {
@@ -70,7 +71,9 @@ export const CartProvider = ({ children }) => {
     getCartTotal,
     getCartCount,
     isCartOpen,
-    setIsCartOpen
+    setIsCartOpen,
+    lastAdded,
+    setLastAdded
   };
 
   return (

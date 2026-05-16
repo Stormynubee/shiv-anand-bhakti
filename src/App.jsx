@@ -18,6 +18,7 @@ import { CartProvider } from './context/CartContext';
 import WhatsAppFAB from './components/ui/WhatsAppFAB';
 import StickyActions from './components/ui/StickyActions';
 import GuidedTour from './components/ui/GuidedTour';
+import AddToCartToast from './components/ui/AddToCartToast';
 import ScrollToTop from './components/ui/ScrollToTop';
 import CartDrawer from './components/ui/CartDrawer';
 import SplashScreen from './components/ui/SplashScreen';
@@ -54,6 +55,7 @@ function App() {
         <WhatsAppFAB />
         <StickyActions />
         <GuidedTour />
+        <AddToCartToast />
       </div>
     </CartProvider>
   );
