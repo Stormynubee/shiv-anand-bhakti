@@ -78,7 +78,7 @@
 /* Ensure it doesn't overlap excessively with WhatsApp FAB */
 @media (max-width: 768px) {
   .sticky-actions-container {
-    bottom: 80px; /* Above the WhatsApp button usually */
+    bottom: 100px; /* Above the WhatsApp button */
     max-width: 320px;
   }
   
